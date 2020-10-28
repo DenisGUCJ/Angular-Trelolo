@@ -1,0 +1,16 @@
+<div (click)="onClick()" [ngSwitch]="option">
+    <div *ngSwitchCase="'title'">
+        <h1 *ngIf=(toggle)>{{text}}</h1>
+        <textarea class="title-sizing" #input *ngIf=(!toggle) [(ngModel)]="text" (keydown)="onEnter($event)"
+            (blur)="onBlur()" cdkTextareaAutosize>
+            {{text}}
+        </textarea>
+    </div>
+    <div *ngSwitchDefault>
+        <p *ngIf=(toggle)>{{text}}</p>
+        <textarea class="common-sizing" #input *ngIf=(!toggle) [(ngModel)]="text" (keydown)="onEnter($event)"
+            (blur)="onBlur()" cdkTextareaAutosize>
+            {{text}}
+        </textarea>
+    </div>
+</div>

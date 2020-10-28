@@ -1,0 +1,8 @@
+<div cdkDropList [cdkDropListData]="tables" (cdkDropListDropped)="drop($event)"
+    cdkDropListOrientation="horizontal">
+    <div class="container" cdkDropListGroup>
+        <div *ngFor="let table of tables">
+            <app-notes-container [table]="table"></app-notes-container>
+        </div>
+    </div>
+</div>

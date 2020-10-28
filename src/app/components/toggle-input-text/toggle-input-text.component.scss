@@ -1,0 +1,56 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: white;
+    user-select: none;
+    font-weight: 400;
+}   
+
+$padding: 0px 5px;
+
+@mixin  commonInputStyles($width, $font-size) {
+    width: $width;
+    display: block;
+    padding: $padding;
+    min-height: 30px;
+    background-color: #3178c6;  
+    font-size: $font-size;
+    outline: none;
+    overflow: hidden;
+    word-wrap: break-word;
+    height: inherit;
+    line-height: inherit;
+    border-radius: 5px;
+    border: 2px solid red;
+}
+
+div{
+    background-color: inherit;
+    width: 100%;   
+    min-height: 30px;
+    word-wrap: break-word;
+    font-size: 1em;
+    padding: 2px;
+    cursor: pointer;
+}
+p{
+    padding: $padding;
+    margin: auto;
+}
+
+h1{
+    padding: $padding;
+}
+
+.common-sizing{
+    @include commonInputStyles(100%, inherit);
+}
+
+.title-sizing{
+    @include commonInputStyles(100%, 2em);
+}
+
+
+
+

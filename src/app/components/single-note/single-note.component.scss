@@ -1,0 +1,30 @@
+$width: 90%;
+
+div {
+    background-color: #313131;
+    width: $width;
+    margin: 10px auto;
+    border-radius: 5px;
+    &:hover {
+        background-color: #494949;
+    }
+    /*
+    &:not(.cdk-drag-placeholder) {
+        transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+    }*/
+}
+
+.cdk-drag-preview {
+    background-color: sandybrown;
+}
+
+// .cdk-drag:not(.cdk-drag-preview):not(.cdk-drag-placeholder){
+//     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+// }
+
+.cdk-drag-placeholder {
+    opacity: 0.5;
+}
+
+
+
