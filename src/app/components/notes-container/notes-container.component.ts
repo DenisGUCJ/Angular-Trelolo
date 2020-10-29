@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { Note } from 'src/app/interfaces/Note';
 import { NotesService } from '../../services/notes.service';
 import {
@@ -16,6 +16,7 @@ import { TablesService } from 'src/app/services/tables.service';
 })
 export class NotesContainerComponent implements OnInit {
   @Input() table: Table;
+  overflow: string;
 
   constructor(private tablesService: TablesService) {}
 
@@ -42,18 +43,32 @@ export class NotesContainerComponent implements OnInit {
         event.currentIndex
       );
     }
-    //this.tablesService.updateTable(this.table).subscribe();
-    console.log(this.table.notes);
+    this.tablesService.updateTable(this.table).subscribe();
   }
 
-  onNoteChanged(event: string){
+  onNoteChanged(event: [number, string]) {
     let index = event[0];
     let note = event[1];
-    this.table.notes[index] = note;
+    if (note.length === 0) {
+      this.table.notes.splice(index, 1);
+    } else if (index === this.table.notes.length - 1) {
+      this.table.notes[index] = note;
+      setTimeout(()=>{
+        this.table.notes.push('');
+      },1)
+    } else {
+      //this.table.notes[index] = note;
+    }
+    console.log(this.table.notes);
     this.updateTable();
   }
 
-  updateTable(){
-    this.tablesService.updateTable(this.table).subscribe()
+  updateTable() {
+    this.tablesService.updateTable(this.table).subscribe();
+  }
+
+  titleChanged(event: string) {
+    this.table.title = event;
+    this.updateTable();
   }
 }

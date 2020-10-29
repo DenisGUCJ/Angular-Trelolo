@@ -32,4 +32,8 @@ export class TableContainerComponent implements OnInit {
       );
     }
   }
+
+  addTable(table: Table){
+    this.tables.push(table);
+  }
 }

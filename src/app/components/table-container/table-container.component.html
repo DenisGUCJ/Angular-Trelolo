@@ -4,5 +4,6 @@
         <div *ngFor="let table of tables">
             <app-notes-container [table]="table"></app-notes-container>
         </div>
+        <app-add-table (tableAdded)="addTable($event)"></app-add-table>
     </div>
 </div>

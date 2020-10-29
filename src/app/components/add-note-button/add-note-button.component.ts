@@ -19,9 +19,7 @@ export class AddNoteButtonComponent implements OnInit {
   }
 
   addEmptyNote() {
+    console.log(this.table.notes)
     this.table.notes.push('');
-    this.tablesService
-      .updateTable(this.table)
-      .subscribe();
   }
 }

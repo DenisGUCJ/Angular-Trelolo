@@ -1,14 +1,35 @@
-.container{
+.container {
     display: flex;
     flex-direction: row;
     overflow: auto;
-    margin: 50px 5%;
-    background-color: aquamarine;
-    div{
+    height: 100%;
+    div {
         margin: 0 30px;
-        &:first-child{
+        &:first-child {
             margin-left: 0;
         }
     }
+    max-height: 100%;
+    &::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+    &::-webkit-scrollbar-button {
+        display: none;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color:white;
+        border-radius: 4px;
+    }
+    &::-webkit-scrollbar-track {
+        display: none;
+    }
+    &::-webkit-scrollbar-corner{
+        display: none;
+    }
 }
 
+.cdk-drop-list {
+    height: inherit;
+    padding: 50px 5% 10px 5%;
+}

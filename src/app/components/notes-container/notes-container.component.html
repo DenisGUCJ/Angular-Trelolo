@@ -1,9 +1,12 @@
-<div class="list"  cdkDrag>
+<div [ngStyle] class="list" cdkDrag>
     <div class="title-container">
-        <app-toggle-input-text [text]="table.title" [option]="'title'"></app-toggle-input-text>
+        <app-toggle-input-text [text]="table.title" [option]="'title'" (changeText)="titleChanged($event)">
+        </app-toggle-input-text>
     </div>
-    <div cdkDropList [cdkDropListData]="table.notes" (cdkDropListDropped)="drop($event)">
-        <app-single-note *ngFor="let note of table.notes; let i = index" [note]="note" [index]="i" (noteChanged)="onNoteChanged($event)"></app-single-note>
+    <div [ngStyle]="{'overflow': overflow}" cdkDropList [cdkDropListData]="table.notes"
+        (cdkDropListDropped)="drop($event)">
+        <app-single-note *ngFor="let note of table.notes; let i = index" [note]="note" [index]="i"
+            (noteChanged)="onNoteChanged($event)"></app-single-note>
     </div>
     <app-add-note-button [table]="table"></app-add-note-button>
 </div>

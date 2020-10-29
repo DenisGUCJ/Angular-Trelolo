@@ -16,6 +16,7 @@ import { InMemoryDataService } from './services/in-memory-data.service';
 import { AddNoteButtonComponent } from './components/add-note-button/add-note-button.component';
 import { TableContainerComponent } from './components/table-container/table-container.component';
 import { HeaderComponent } from './components/header/header.component';
+import { AddTableComponent } from './components/add-table/add-table.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { HeaderComponent } from './components/header/header.component';
     AddNoteButtonComponent,
     TableContainerComponent,
     HeaderComponent,
+    AddTableComponent,
   ],
   imports: [
     BrowserModule,
