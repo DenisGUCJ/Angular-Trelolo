@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Note } from '../interfaces/Note';
 import { Table } from '../interfaces/Table';
 
 @Injectable({

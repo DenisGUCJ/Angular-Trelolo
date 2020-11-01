@@ -1,18 +1,17 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 $width: 90%;
 
-div {
+@mixin commonDiv() {
     padding: 10px 0px;
     background-color: #262626;
-    width: 380px;
+    width: 290px;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
+}
+
+.container{
+    @include commonDiv();
+    max-height: 100%;
 }
 
 .title-container {
@@ -23,5 +22,31 @@ div {
 }
 
 .cdk-drag-placeholder {
-    opacity: 0.5;
+    opacity: 0.8;
+    &>*{
+        opacity: 0;
+    }
+}
+
+.cdk-drop-list {
+    overflow: auto;
+    min-height: 50px;
+    max-height: 100%;
+    &::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+    &::-webkit-scrollbar-button {
+        display: none;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: white;
+        border-radius: 4px;
+    }
+    &::-webkit-scrollbar-track {
+        display: none;
+    }
+    &::-webkit-scrollbar-corner {
+        display: none;
+    }
 }

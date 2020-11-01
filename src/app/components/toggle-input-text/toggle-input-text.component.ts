@@ -24,21 +24,18 @@ export class ToggleInputTextComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    console.log(this.text.trim())
-    console.log(this.text.length)
-    if(this.text.trim() === ''){
-      this.focusTextarea()
+    if (this.text.trim() === '') {
+      this.focusTextarea();
     }
   }
 
   onClick() {
     this.toggle = !this.toggle;
-    if (!this.toggle){
-      this.focusTextarea()
-    }else{
-      this.changeText.emit(this.text)
+    if (!this.toggle) {
+      this.focusTextarea();
+    } else {
+      this.changeText.emit(this.text);
     }
-
   }
 
   onEnter(event) {
@@ -53,7 +50,7 @@ export class ToggleInputTextComponent implements OnInit {
     this.changeText.emit(this.text);
   }
 
-  focusTextarea(){
+  focusTextarea() {
     this.toggle = false;
     setTimeout(() => {
       // this will make the execution after the above boolean has changed

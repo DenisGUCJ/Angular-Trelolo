@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+  AfterViewInit,
+} from '@angular/core';
 import { Table } from 'src/app/interfaces/Table';
 import { TablesService } from 'src/app/services/tables.service';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
@@ -9,6 +15,10 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
   styleUrls: ['./table-container.component.scss'],
 })
 export class TableContainerComponent implements OnInit {
+  @ViewChild('container') container: ElementRef;
+
+  parentHeight: number;
+
   tables: Table[];
 
   constructor(private tablesService: TablesService) {}
@@ -33,7 +43,12 @@ export class TableContainerComponent implements OnInit {
     }
   }
 
-  addTable(table: Table){
+  addTable(table: Table) {
     this.tables.push(table);
+  }
+
+  onDrag(event) {
+    console.log('sas');
+    if (this.container) console.log(this.container);
   }
 }

@@ -1,6 +1,4 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
-import { Note } from 'src/app/interfaces/Note';
-import { NotesService } from '../../services/notes.service';
 import {
   CdkDragDrop,
   moveItemInArray,
@@ -8,6 +6,7 @@ import {
 } from '@angular/cdk/drag-drop';
 import { Table } from 'src/app/interfaces/Table';
 import { TablesService } from 'src/app/services/tables.service';
+import { ResizedEvent } from 'angular-resize-event';
 
 @Component({
   selector: 'app-notes-container',
@@ -16,7 +15,7 @@ import { TablesService } from 'src/app/services/tables.service';
 })
 export class NotesContainerComponent implements OnInit {
   @Input() table: Table;
-  overflow: string;
+  @ViewChild('notesContainer') notesContainer: ElementRef;
 
   constructor(private tablesService: TablesService) {}
 
@@ -53,9 +52,9 @@ export class NotesContainerComponent implements OnInit {
       this.table.notes.splice(index, 1);
     } else if (index === this.table.notes.length - 1) {
       this.table.notes[index] = note;
-      setTimeout(()=>{
+      setTimeout(() => {
         this.table.notes.push('');
-      },1)
+      }, 1);
     } else {
       //this.table.notes[index] = note;
     }

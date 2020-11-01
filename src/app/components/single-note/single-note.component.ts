@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Note } from 'src/app/interfaces/Note';
 
 @Component({
   selector: 'app-single-note',

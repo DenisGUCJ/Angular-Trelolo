@@ -5,7 +5,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AutoSizeInputModule } from 'ngx-autosize-input';
-import { MatInputModule} from '@angular/material/input'
+import { MatInputModule} from '@angular/material/input';
+import { AngularResizedEventModule} from 'angular-resize-event';
+import { DragScrollModule} from 'ngx-drag-scroll'
 
 import { AppComponent } from './app.component';
 import { NotesContainerComponent } from './components/notes-container/notes-container.component';
@@ -40,6 +42,8 @@ import { AddTableComponent } from './components/add-table/add-table.component';
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       dataEncapsulation: false,
     }),
+    AngularResizedEventModule,
+    DragScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent],

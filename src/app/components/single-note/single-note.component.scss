@@ -8,23 +8,12 @@ div {
     &:hover {
         background-color: #494949;
     }
-    /*
-    &:not(.cdk-drag-placeholder) {
-        transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
-    }*/
 }
 
 .cdk-drag-preview {
-    background-color: sandybrown;
+    background-color: #5e565a;
 }
-
-// .cdk-drag:not(.cdk-drag-preview):not(.cdk-drag-placeholder){
-//     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
-// }
 
 .cdk-drag-placeholder {
-    opacity: 0.5;
+    opacity: 0.8;
 }
-
-
-

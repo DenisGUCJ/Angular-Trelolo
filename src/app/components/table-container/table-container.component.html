@@ -1,9 +1,7 @@
-<div cdkDropList [cdkDropListData]="tables" (cdkDropListDropped)="drop($event)"
-    cdkDropListOrientation="horizontal">
-    <div class="container" cdkDropListGroup>
-        <div *ngFor="let table of tables">
-            <app-notes-container [table]="table"></app-notes-container>
-        </div>
+<div cdkDropList [cdkDropListData]="tables" (cdkDropListDropped)="drop($event)" cdkDropListOrientation="horizontal">
+    <div (keydown)="onDrag($event)" #container class="container" cdkDropListGroup>
+        <app-notes-container *ngFor="let table of tables" [table]="table">
+        </app-notes-container>
         <app-add-table (tableAdded)="addTable($event)"></app-add-table>
     </div>
 </div>
